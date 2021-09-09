@@ -42,5 +42,5 @@ params.sample_name will be as argument to "--tumor-id".
 
 * Changelog
 
-- Latest commit for this wrapper :: Fix missing "--tumor-id" argument.
+- ~d540766~ :: Fix missing "--tumor-id" argument.
 - ~ffed1e6~ :: Initial commit

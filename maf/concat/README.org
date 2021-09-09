@@ -1,0 +1,21 @@
+#+TITLE: Concatenate MAF files
+
+* Example
+
+#+begin_src
+rule concat_mafs:
+    output: "concat.maf"
+    input: "one.maf", "two.maf", "three.maf"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/COMMIT/maf/concat"
+#+end_src
+
+* Parameters
+
+- input ::
+  One or more MAF files
+- output ::
+  A MAF file
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit
