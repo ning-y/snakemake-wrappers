@@ -1,0 +1,28 @@
+#+TITLE: Subset samples from a VCF file
+
+* Example
+
+#+begin_src
+# Subset a single sample
+rule subset_vcf_sample:
+    input: "input.vcf"
+    output: "{sample_name}.vcf"
+    params: lambda wc: samples = [wc.sample_name]
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/bcftools/subset-sample"
+
+# Subset many samples
+rule subset_vcf_sample:
+    input: "input.vcf"
+    output: "output.vcf"
+    params: samples = ["SAMPLE1", "SAMPLE2"]
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/bcftools/subset-sample"
+#+end_src
+
+* Parameters
+
+- input ::
+  An input VCF or bgzipped VCF file.
+- output ::
+  An output file ending in "vcf.gz" if output should be bgzipped VCF, otherwise ".vcf" for VCF.
+- params.samples ::
+  A non-empty list of sample ID(s) to subset for.
