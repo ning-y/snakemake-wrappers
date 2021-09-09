@@ -1,0 +1,39 @@
+#+TITLE: Convert a single-sample VCF to MAF
+
+* Example
+
+#+begin_src
+rule vcf2maf:
+    output: "{sample_name}.maf"
+    input:
+        vcf = "{sample_name}.vcf",
+        db = ancient(os.path.expanduser("~/.vep/homo_sapiens/104_GRCh37/info.txt")),
+        fa = ancient(os.path.expanduser("~/.vep/homo_sapiens/104_GRCh37/Homo_sapiens.GRCh37.dna.toplevel.fa.gz")),
+        fai = ancient(os.path.expanduser("~/.vep/homo_sapiens/104_GRCh37/Homo_sapiens.GRCh37.dna.toplevel.fa.gz.fai")),
+        gzi = ancient(os.path.expanduser("~/.vep/homo_sapiens/104_GRCh37/Homo_sapiens.GRCh37.dna.toplevel.fa.gz.gzi"))
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/e37b672/vcf2maf/vcf2maf"
+#+end_src
+
+* Parameters
+
+- input.vcf ::
+  An input single-sample VCF file.
+  Bgzipped VCF is not accepted.
+- input.db ::
+  info.txt file of the directory containing the VEP database, including species, release, and build.
+- input.fa ::
+  Bgzipped reference file of input.vcf.
+- input.fai ::
+  FAI index of input.fa.
+- input.gzi ::
+  GZI index of input.fa.
+
+* Details
+
+The info.txt of input.db is a "dummy" file used to represent the existence of the Ensembl VEP directory.
+This file should be present in all the Ensembl VEP tarballs.
+Specifying one specific file rather than the directory itself prevents a ChildIOException in the case input.fa is also in the Ensembl VEP database directory.
+
+input.fai and input.gzi are not actually referred to in the wrapper shell command --- they are there to be explicit about the requirement for the FASTA indices.
+
+Species, release, and build are inferred from input.db for vcf2maf.pl's "--species", "--cache-version", and "--ncbi-build" respectively.

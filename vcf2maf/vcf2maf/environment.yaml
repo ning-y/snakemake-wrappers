@@ -1,0 +1,6 @@
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - vcf2maf==1.6.21
+  - ensembl-vep==104.3
