@@ -13,6 +13,7 @@ shell(
     f"""
     vcf2maf.pl \
         --input-vcf {snakemake.input.vcf} \
+        --tumor-id {snakemake.wildcards.sample_name} \
         --species {species} \
         --ncbi-build {build} \
         --cache-version {release} \

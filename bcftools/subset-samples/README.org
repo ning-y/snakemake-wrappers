@@ -36,5 +36,5 @@ INFO/AC and INFO/AN are updated.
 
 * Changelog
 
-- Latest commit for this wrapper :: Remove variants not in subsetted samples
+- ~4f8c32e~ :: Remove variants not in subsetted samples
 - ~e37b672~ :: Initial commit

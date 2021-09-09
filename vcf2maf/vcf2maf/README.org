@@ -11,6 +11,7 @@ rule vcf2maf:
         fa = ancient(os.path.expanduser("~/.vep/homo_sapiens/104_GRCh37/Homo_sapiens.GRCh37.dna.toplevel.fa.gz")),
         fai = ancient(os.path.expanduser("~/.vep/homo_sapiens/104_GRCh37/Homo_sapiens.GRCh37.dna.toplevel.fa.gz.fai")),
         gzi = ancient(os.path.expanduser("~/.vep/homo_sapiens/104_GRCh37/Homo_sapiens.GRCh37.dna.toplevel.fa.gz.gzi"))
+    params: sample_name = lambda wc: wc.sample_name
     wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/e37b672/vcf2maf/vcf2maf"
 #+end_src
 
@@ -37,7 +38,9 @@ Specifying one specific file rather than the directory itself prevents a ChildIO
 input.fai and input.gzi are not actually referred to in the wrapper shell command --- they are there to be explicit about the requirement for the FASTA indices.
 
 Species, release, and build are inferred from input.db for vcf2maf.pl's "--species", "--cache-version", and "--ncbi-build" respectively.
+params.sample_name will be as argument to "--tumor-id".
 
 * Changelog
 
+- Latest commit for this wrapper :: Fix missing "--tumor-id" argument.
 - ~ffed1e6~ :: Initial commit
