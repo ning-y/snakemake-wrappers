@@ -26,3 +26,15 @@ rule subset_vcf_sample:
   An output file ending in "vcf.gz" if output should be bgzipped VCF, otherwise ".vcf" for VCF.
 - params.samples ::
   A non-empty list of sample ID(s) to subset for.
+
+* Details
+
+Variants not in any of the subsetted samples, i.e. INFO/AC=0, are removed.
+INFO/AC and INFO/AN are updated.
+
+*NB.* If the input had INFO/AF, that field is no longer up-to-date.
+
+* Changelog
+
+- Latest commit for this wrapper :: Remove variants not in subsetted samples
+- ~e37b672~ :: Initial commit

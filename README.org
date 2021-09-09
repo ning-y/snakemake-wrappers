@@ -1,3 +1,6 @@
 #+TITLE: snakemake-wrappers
 
 Provided without warranty, written with ~--use-conda~ in mind.
+
+- [[bcftools/subset-samples][bcftools/subset-samples]] :: Subset one or more samples from a multi-sample VCF file, removing variants not in the subset
+- [[vcf2maf/vcf2maf][vcf2maf/vcf2maf]] :: Convert a single-sample VCF file to MAF

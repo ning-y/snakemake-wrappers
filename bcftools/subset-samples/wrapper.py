@@ -13,6 +13,8 @@ if output_type is None: raise ValueError("Bad output extension")
 
 shell(
     f"""
-    bcftools view -O{output_type} --samples {samples} \
-        {snakemake.input} > {snakemake.output}
+    bcftools view --samples {samples} {snakemake.input} | \
+        bcftools annotate --remove INFO/AC,INFO/AN | \
+        bcftools +fill-tags -- --tags AC,AN | \
+        bcftools filter --output-type {output_type} --exclude "INFO/AC=0" > {snakemake.output}
     """)

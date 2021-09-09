@@ -37,3 +37,7 @@ Specifying one specific file rather than the directory itself prevents a ChildIO
 input.fai and input.gzi are not actually referred to in the wrapper shell command --- they are there to be explicit about the requirement for the FASTA indices.
 
 Species, release, and build are inferred from input.db for vcf2maf.pl's "--species", "--cache-version", and "--ncbi-build" respectively.
+
+* Changelog
+
+- ~ffed1e6~ :: Initial commit
