@@ -16,6 +16,15 @@ rule concat_mafs:
 - output ::
   A MAF file
 
+* Details
+
+The following error is due to this wrapper having no conda dependencies, and can be safely ignored:
+
+#+begin_src
+Not a conda environment: /home/user/project/.snakemake/conda/9d3368f4d6563b53489cab079668dfd8
+#+end_src
+
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- Latest commit in this wrapper :: Fix malformed bash for loop and egrep command
+- ~4e0b3f1~ :: Initial commit

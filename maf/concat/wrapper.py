@@ -11,5 +11,6 @@ shell(
     f"""
     egrep "{MAF_HEADER_REGEX}" {snakemake.input[0]} | head -n 2 > {snakemake.output[0]}
     for maf in {snakemake.input}; do
-        egrep --invert-match "{MAF_HEADER_REGEX}" >> {snakemake.output[0]}
+        egrep --invert-match "{MAF_HEADER_REGEX}" "$maf" >> {snakemake.output[0]}
+    done
     """)
