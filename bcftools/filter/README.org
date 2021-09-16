@@ -1,0 +1,29 @@
+#+TITLE: Filter variants
+
+* Example
+
+#+begin_src
+# Filter for passing variants
+rule filter_passing:
+    input: "input.vcf.gz"
+    output: "output.vcf.gz"
+    params: include = "FILTER=\"PASS\""
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/bcftools/filter"
+#+end_src
+
+* Parameters
+
+- input ::
+  An input VCF or bgzipped VCF file.
+- output ::
+  An output file ending in "vcf.gz" if output should be bgzipped VCF, otherwise ".vcf" for VCF.
+- params.include ::
+  /Optional./
+  Filtering expression which will be enclosed in single-quotes (`'`) and given to bcftools as the `--include` argument
+- params.exclude ::
+  /Optional./
+  Filtering expression which will be enclosed in single-quotes (`'`) and given to bcftools as the `--exclude` argument
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit

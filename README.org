@@ -3,5 +3,6 @@
 Provided without warranty, written with ~--use-conda~ in mind.
 
 - [[bcftools/subset-samples][bcftools/subset-samples]] :: Subset one or more samples from a multi-sample VCF file, removing variants not in the subset
+- [[bcftools/filter][bcftools/filter]] :: Include or exclude variants from a VCF file
 - [[maf/concat][maf/concat]] :: Concatenate MAF files
 - [[vcf2maf/vcf2maf][vcf2maf/vcf2maf]] :: Convert a single-sample VCF file to MAF
