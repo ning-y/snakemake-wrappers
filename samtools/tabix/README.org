@@ -6,7 +6,7 @@
 rule index_vcf:
     input: "input.vcf.gz"
     output: "input.vcf.gz.tbi"
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/samtools/tabix"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/237b312/samtools/tabix"
 #+end_src
 
 * Parameters
@@ -18,4 +18,4 @@ rule index_vcf:
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- ~237b312~ :: Initial commit

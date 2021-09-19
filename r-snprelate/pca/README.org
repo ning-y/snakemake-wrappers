@@ -1,0 +1,33 @@
+#+TITLE: Calculate SNP eigenvectors for PCA
+
+* Example
+
+#+begin_src
+rule calculate_pca:
+    output:
+        gds = "output.gds",
+        rds = "output.rds"
+    input: "input.vcf.gz"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/r-snprelate/pca"
+#+end_src
+
+* Parameters
+
+- input ::
+  An input VCF or bgzipped VCF file.
+- output.gds ::
+  An output file to store the genomic data structure (GDS) file.
+  SNPRelate uses GDS as its primary data structure.
+- output.rds ::
+  An output file to store the PCA results.
+  This is a RDS of a list with at least elements "sample.id" (length-n vector), "snp.id" (length-m vector), "eigenval" (length-n vector), "eigenvect" (n by 32 matrix), "varprop" (length-n vector), "TraceXTX" (atomic numeric), and "Bayesian" (atomic logical).
+  E.g. to plot a standard PCA use output.rds$eigenvect[,1] against output.rds$eigenvect[,2].
+
+* Details
+
+I'm pretty sure SNPRelate only considers biallelic records.
+Consult their documentation to double-check.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit

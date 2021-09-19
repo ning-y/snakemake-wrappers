@@ -10,7 +10,7 @@ rule normalize_variants:
         tbi = "input.vcf.gz.tbi",
         fa = "ref.fa"
     output: "output.vcf.gz"
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/bcftools/normalize"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/237b312/bcftools/normalize"
 #+end_src
 
 * Parameters
@@ -31,4 +31,4 @@ Once split, records with ~ALT="*"~ are removed, because they should already repr
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- ~237b312~ :: Initial commit
