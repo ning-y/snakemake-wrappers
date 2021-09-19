@@ -2,7 +2,10 @@
 
 Provided without warranty, written with ~--use-conda~ in mind.
 
-- [[bcftools/subset-samples][bcftools/subset-samples]] :: Subset one or more samples from a multi-sample VCF file, removing variants not in the subset
+- [[bcftools/deduplicate][bcftools/deduplicate]] :: Deduplicate VCF records
 - [[bcftools/filter][bcftools/filter]] :: Include or exclude variants from a VCF file
+- [[bcftools/normalize][bcftools/normalize]] :: Left-align and decompose multiallelic records
+- [[bcftools/subset-samples][bcftools/subset-samples]] :: Subset one or more samples from a multi-sample VCF file, removing variants not in the subset
 - [[maf/concat][maf/concat]] :: Concatenate MAF files
+- [[samtools/tabix][samtools/tabix]] :: Index VCF files
 - [[vcf2maf/vcf2maf][vcf2maf/vcf2maf]] :: Convert a single-sample VCF file to MAF

@@ -1,0 +1,21 @@
+#+TITLE: Index VCF
+
+* Example
+
+#+begin_src
+rule index_vcf:
+    input: "input.vcf.gz"
+    output: "input.vcf.gz.tbi"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/samtools/tabix"
+#+end_src
+
+* Parameters
+
+- input ::
+  An input bgzipped VCF file.
+- output ::
+  The filename in /input/, appended by ~".tbi"~.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit

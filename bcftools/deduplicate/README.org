@@ -1,0 +1,21 @@
+#+TITLE: Deduplicate VCF records
+
+* Example
+
+#+begin_src
+rule deduplicate_vcf_records:
+    input: "input.vcf.gz",
+    output: "output.vcf.gz"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/bcftools/deduplicate"
+#+end_src
+
+* Parameters
+
+- input ::
+  An input bgzipped VCF file.
+- output ::
+  An output file ending in "vcf.gz" if output should be bgzipped VCF, otherwise ".vcf" for VCF.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit

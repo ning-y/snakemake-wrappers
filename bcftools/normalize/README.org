@@ -1,0 +1,34 @@
+#+TITLE: Left-align and decompose multiallelic variants
+
+* Example
+
+#+begin_src
+# Filter for passing variants
+rule normalize_variants:
+    input:
+        vcf = "input.vcf.gz",
+        tbi = "input.vcf.gz.tbi",
+        fa = "ref.fa"
+    output: "output.vcf.gz"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/bcftools/normalize"
+#+end_src
+
+* Parameters
+
+- input.vcf ::
+  An input bgzipped VCF file.
+- input.tbi ::
+  Index to input.vcf.
+- input.fa ::
+  Uncompressed reference FASTA file.
+- output ::
+  An output file ending in "vcf.gz" if output should be bgzipped VCF, otherwise ".vcf" for VCF.
+
+* Details
+
+Left-aligns indels, splits multiallelic records into biallelic ones (the ~--multiallelics - ~).
+Once split, records with ~ALT="*"~ are removed, because they should already represented by upstream indels ([[https://web.archive.org/web/20210919051442/https://www.biostars.org/p/490448/][Biostars thread]]).
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit
