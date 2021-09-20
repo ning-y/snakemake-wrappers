@@ -6,7 +6,7 @@
 rule combine_vcfs:
     input: "input1.vcf.gz", "input2.vcf.gz", "input3.vcf.gz"
     output: "output.vcf.gz"
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/237b312/bcftools/deduplicate"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/bee26e6/bcftools/concat"
 #+end_src
 
 * Parameters
@@ -18,4 +18,4 @@ rule combine_vcfs:
 
 * Changelog
 
-- ~237b312~ :: Initial commit
+- ~bee26e6~ :: Initial commit

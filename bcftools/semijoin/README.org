@@ -1,0 +1,36 @@
+#+TITLE: Semi join one VCF file against another
+
+* Example
+
+#+begin_src
+rule combine_vcfs:
+    output: "x.filtered.vcf.gz"
+    input:
+        subject = "x.vcf.gz",
+        subject_tbi = "x.vcf.gz.tbi",
+        object = "y.vcf.gz",
+        object_tbi = "y.vcf.gz.tbi"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/bee26e6/bcftools/semijoin"
+#+end_src
+
+* Parameters
+
+- input.subject ::
+  An input bgzipped VCF file.
+- input.subject_tbi ::
+  Index to input.subject.
+- input.object ::
+  A filtering bgzipped VCF file.
+- input.object_tbi ::
+  Index to input.object.
+- output ::
+  An output file ending in "vcf.gz" if output should be bgzipped VCF, otherwise ".vcf" for VCF.
+
+* Details
+
+output is a VCF of records from input.subject which also appear in input.object.
+Records are considered the same only if they have the same POS, REF, and ALT; i.e. it'd be a good idea to run [[../normalize][bcftools/normalize]] first.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit
