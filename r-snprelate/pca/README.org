@@ -8,7 +8,7 @@ rule calculate_pca:
         gds = "output.gds",
         rds = "output.rds"
     input: "input.vcf.gz"
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/r-snprelate/pca"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/fc7234e/r-snprelate/pca"
 #+end_src
 
 * Parameters
@@ -30,4 +30,4 @@ Consult their documentation to double-check.
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- fc7234e :: Initial commit
