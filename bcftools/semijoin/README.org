@@ -10,7 +10,7 @@ rule combine_vcfs:
         subject_tbi = "x.vcf.gz.tbi",
         object = "y.vcf.gz",
         object_tbi = "y.vcf.gz.tbi"
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/bee26e6/bcftools/semijoin"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/870f4d7/bcftools/semijoin"
 #+end_src
 
 * Parameters
@@ -33,4 +33,4 @@ Records are considered the same only if they have the same POS, REF, and ALT; i.
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- ~870f4d7~ :: Initial commit

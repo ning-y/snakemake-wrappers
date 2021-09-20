@@ -1,0 +1,30 @@
+#+TITLE: Merge VCF samples
+
+* Example
+
+#+begin_src
+rule combine_vcfs:
+    output: "merged.vcf.gz"
+    input:
+        targets = ["x.vcf.gz",     "y.vcf.gz"]
+        indices = ["x.vcf.gz.tbi", "y.vcf.gz.tbi"]
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/870f4d7/bcftools/merge"
+#+end_src
+
+* Parameters
+
+- input.targets ::
+  A list of input bgzipped VCF files to be merged.
+- input.indices ::
+  A list of indices to input.targets.
+- output ::
+  An output file ending in "vcf.gz" if output should be bgzipped VCF, otherwise ".vcf" for VCF.
+
+* Details
+
+No new multiallelic records are created (~--merge none~).
+The indices in input.indices are not actually used --- they are just there to prompt Snakemake to check for their existence.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit
