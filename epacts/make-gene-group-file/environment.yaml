@@ -1,0 +1,6 @@
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - r-vcfr
+  - r-tidyverse
