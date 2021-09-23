@@ -1,0 +1,5 @@
+channels:
+  - conda-forge
+dependencies:
+  - r-tidyverse
+  - r-latex2exp

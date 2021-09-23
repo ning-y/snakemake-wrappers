@@ -1,0 +1,22 @@
+#+TITLE: Generate a Q-Q plot from EPACTS results
+
+* Example
+
+#+begin_src
+rule epacts_qq:
+    output: "qq.png"
+    input: "results.epacts"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/fc7234e/epacts/qqplot"
+#+end_src
+
+* Parameters
+
+- input ::
+  The tab-delimited EPACTS results file.
+- output ::
+  An output file to write the qqplot file to.
+  This will be passed to ~`ggplot2::ggsave~, so whatever is allowed there is allowed here.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit

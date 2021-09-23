@@ -21,4 +21,4 @@ rule group_by_genes:
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- ~46c6b0f~ :: Initial commit
