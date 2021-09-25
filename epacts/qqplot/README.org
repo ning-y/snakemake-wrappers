@@ -19,5 +19,6 @@ rule epacts_qq:
 
 * Changelog
 
-- Latest commit in this wrapper :: Fix x-axis not being negative log-transformed, missing minus sign in axis labels
+- Latest commit in this wrapper :: Annotate plots with the genomic inflation factor
+- ~71b09f5~ :: Fix x-axis not being negative log-transformed, missing minus sign in axis labels
 - ~85d5219~ :: Initial commit
