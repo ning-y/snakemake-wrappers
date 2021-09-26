@@ -2,8 +2,16 @@ suppressPackageStartupMessages({
   library(tidyverse)
   library(latex2exp)})
 
-results <- read_tsv(snakemake@input[[1]]) %>%
+# read_tsv guesses #CHROM column to be numeric, causing parsing errors when it
+# reaches X and Y, so make it explicitly character. Full list of columns:
+# #CHROM, BEGIN, END, MARKER_ID, NS, FRAC_WITH_RARE, NUM_ALL_VARS,
+# NUM_PASS_VARS, NUM_SING_VARS, PVALUE, STATRHO
+results <- read_tsv(
+    snakemake@input[[1]],
+    col_types="ccccidiiidd") %>%
   select(observed_p=PVALUE) %>%
+  # For the genomic inflaction factor calculation, because median considers NA
+  filter(!is.na(observed_p)) %>%
   arrange(observed_p) %>%
   mutate(
     expected_p=seq(from=0, to=1, length.out=n()),
@@ -15,6 +23,7 @@ observed_median_chisq <- median(results$observed_p) %>% qchisq(., 1)
 expected_median_chisq <- qchisq(0.5, 1)
 genomic_inflation_factor <- observed_median_chisq / expected_median_chisq
 annotations <- tibble(
+  # See https://github.com/stefano-meschiari/latex2exp/issues/13
   label=TeX(
     sprintf("Genomic inflation factor $\\lambda_{\\mathrm{GC}} = %s$",
             formatC(genomic_inflation_factor, digits=2, format="f")),
