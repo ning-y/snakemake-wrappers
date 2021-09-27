@@ -7,7 +7,8 @@ An opinionated set of personal Snakemake wrappers.
 - [[bedtools/rename-chroms][bedtools/rename-chroms]] :: Rename BED file chromosomes
 - [[bcftools/concat][bcftools/concat]] :: Concatenate VCF records
 - [[bcftools/deduplicate][bcftools/deduplicate]] :: Deduplicate VCF records
-- [[bcftools/filter][bcftools/filter]] :: Include or exclude variants from a VCF file
+- [[bcftools/filter-by-bed][bcftools/filter-by-bed]] :: Include variants from a VCF file only if they are in a given BED file-specified region set
+- [[bcftools/filter-by-expression][bcftools/filter-by-expression]] :: Include or exclude variants from a VCF file by bcftools expressions
 - [[bcftools/merge][bcftools/merge]] :: Merge samples of VCF files
 - [[bcftools/normalize][bcftools/normalize]] :: Left-align and decompose multiallelic records
 - [[bcftools/semijoin][bcftools/semijoin]] :: Semi join one VCF file against another

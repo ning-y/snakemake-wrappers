@@ -1,0 +1,29 @@
+#+TITLE: Filter variants by BED file
+
+* Example
+
+#+begin_src
+# Filter for passing variants
+rule filter_passing:
+    input:
+        vcf = "input.vcf.gz",
+        tbi = "input.vcf.gz.tbi",
+        bed = "database.bed.gz"
+    output: "output.vcf.gz"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/bcftools/filter-by-bed"
+#+end_src
+
+* Parameters
+
+- input.vcf ::
+  An input VCF or bgzipped VCF file.
+- input.tbi ::
+  Index to input.vcf.
+- input.bed ::
+  An input BED or gzipped BED file.
+- output ::
+  An output file ending in "vcf.gz" if output should be bgzipped VCF, otherwise ".vcf" for VCF.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit

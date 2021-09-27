@@ -1,4 +1,4 @@
-#+TITLE: Filter variants
+#+TITLE: Filter variants by bcftools expression
 
 * Example
 
@@ -8,7 +8,7 @@ rule filter_passing:
     input: "input.vcf.gz"
     output: "output.vcf.gz"
     params: include = "FILTER=\"PASS\""
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/bcftools/filter"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/bcftools/filter-by-expression"
 #+end_src
 
 * Parameters
@@ -26,4 +26,5 @@ rule filter_passing:
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- Latest commit in this wrapper :: Rename wrapper from "filter" to "filter-by-expression"
+- ~a989aa8~ :: Initial commit
