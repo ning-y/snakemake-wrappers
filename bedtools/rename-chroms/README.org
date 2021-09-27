@@ -1,0 +1,24 @@
+#+TITLE: Rename BED file chromosomes
+
+* Example
+
+#+begin_src
+rule rename_chroms:
+    output: "output.bed"
+    input: "input.bed"
+    params: replace = {f"chr{z}": z for z in [*range(0, 23), "X", "Y"]}
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/870f4d7/bedtools/rename-chroms"
+#+end_src
+
+* Parameters
+
+- input ::
+  Input BED file, possibly gzipped.
+- output ::
+  BED file to output to, or gzipped BED file to output to if this ends in ".gz".
+- params.replace ::
+  Dictionary where the chromosome names in the keys are replaced by their values.
+
+* Changelog
+
+- ~Latest commit in this wrapper~ :: Initial commit

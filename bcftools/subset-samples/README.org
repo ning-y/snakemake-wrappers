@@ -7,7 +7,7 @@
 rule subset_vcf_sample:
     input: "input.vcf"
     output: "{sample_name}.vcf"
-    params: lambda wc: samples = [wc.sample_name]
+    params: samples = lambda wc: [wc.sample_name]
     wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/bcftools/subset-samples"
 
 # Subset many samples
