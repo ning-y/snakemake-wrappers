@@ -23,4 +23,5 @@ Strandedness is ignored.
 
 * Changelog
 
+- Latest commit in this wrapper :: Fix error on unsorted input BED files
 - ~03954c9~ :: Initial commit

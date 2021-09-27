@@ -12,6 +12,7 @@ reader = "zcat" if re.search("\.gz$", snakemake.input[0]) else "cat"
 # and the second set of double braces escape Snakemake's f-string expansion.
 shell(f"""
     {reader} {snakemake.input} | \
+        bedtools sort -i - | \
         bedtools merge -i - | \
         awk 'BEGIN{{{{SUM=0}}}} {{{{SUM+=$3-$2}}}} END {{{{print SUM}}}}' > \
         {snakemake.output}

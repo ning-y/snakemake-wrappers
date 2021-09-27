@@ -25,4 +25,4 @@ rule pad_bed:
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- ~6f0d710~ :: Initial commit
