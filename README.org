@@ -2,7 +2,8 @@
 
 An opinionated set of personal Snakemake wrappers.
 
-- bedtools/cov-length :: Count the number of bases covered by a BED file
+- [[bedtools/cov-length][bedtools/cov-length]] :: Count the number of bases covered by a BED file
+- [[bedtools/pad][bedtools/pad]] :: Extend each feature in a BED file
 - [[bedtools/rename-chroms][bedtools/rename-chroms]] :: Rename BED file chromosomes
 - [[bcftools/concat][bcftools/concat]] :: Concatenate VCF records
 - [[bcftools/deduplicate][bcftools/deduplicate]] :: Deduplicate VCF records

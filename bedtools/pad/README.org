@@ -1,0 +1,28 @@
+#+TITLE: Extend each feature in a BED file
+
+* Example
+
+#+begin_src
+rule pad_bed:
+    output: "A.padded.bed"
+    input:
+        bed = "A.bed",
+        genome = "hg19.genome"
+    params: pad_by = 150
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/870f4d7/bedtools/pad"
+#+end_src
+
+* Parameters
+
+- input.bed ::
+  Input BED file, possibly gzipped.
+- input.genome ::
+  /bedtools/ /genome/ file.
+- output ::
+  BED file to output to, or gzipped BED file to output to if this ends in ".gz".
+- params.pad_by ::
+  Length to add to each side of each feature.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit

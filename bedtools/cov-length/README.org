@@ -23,4 +23,4 @@ Strandedness is ignored.
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- ~03954c9~ :: Initial commit
