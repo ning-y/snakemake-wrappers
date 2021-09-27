@@ -1,0 +1,26 @@
+#+TITLE: Count the number of bases covered by a BED file
+
+* Example
+
+#+begin_src
+rule rename_chroms:
+    output: "A.count"
+    input: "A.bed"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/870f4d7/bedtools/cov-length"
+#+end_src
+
+* Parameters
+
+- input ::
+  Input BED file, possibly gzipped.
+- output ::
+  Output file for counts.
+
+* Details
+
+Regions are merged before hand, i.e. there will be no double-counting.
+Strandedness is ignored.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit

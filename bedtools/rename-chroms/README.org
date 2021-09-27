@@ -21,4 +21,4 @@ rule rename_chroms:
 
 * Changelog
 
-- ~Latest commit in this wrapper~ :: Initial commit
+- ~bdb8ddd~ :: Initial commit
