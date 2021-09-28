@@ -1,0 +1,21 @@
+#+TITLE: Split VCF files into many chunks
+
+* Example
+
+#+begin_src
+rule scatter_vcfs:
+    input: "input.vcf.gz"
+    output: scatter.split("{scatteritem}.vcf.gz")
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/bee26e6/bcftools/scatter"
+#+end_src
+
+* Parameters
+
+- input ::
+  One or more input bgzipped VCF file, all with the same set of samples.
+- output ::
+  One or more output files ending in "vcf.gz" if output should be bgzipped VCF, otherwise ".vcf" for VCF.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit
