@@ -26,4 +26,4 @@ rule filter_passing:
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- ~c15d239~ :: Initial commit

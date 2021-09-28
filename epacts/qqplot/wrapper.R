@@ -19,7 +19,7 @@ results <- read_tsv(
     expected_logp=-log10(expected_p))
 
 # Calculate the genomic inflaction factor, \lambda_{GC}
-observed_median_chisq <- median(results$observed_p) %>% qchisq(., 1)
+observed_median_chisq <- median(results$observed_p) %>% {qchisq(1-., 1)}
 expected_median_chisq <- qchisq(0.5, 1)
 genomic_inflation_factor <- observed_median_chisq / expected_median_chisq
 annotations <- tibble(

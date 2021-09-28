@@ -19,6 +19,7 @@ rule epacts_qq:
 
 * Changelog
 
+- Latest commit in this wrapper :: Fix observed median chisq calculation
 - ~f2781f2~ :: Ignore NA in genomic inflation factor calculations, fix parsing errors
 - ~4a00523~ :: Annotate plots with the genomic inflation factor
 - ~71b09f5~ :: Fix x-axis not being negative log-transformed, missing minus sign in axis labels
