@@ -18,4 +18,4 @@ rule scatter_vcfs:
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- ~44ac3dd~ :: Initial commit

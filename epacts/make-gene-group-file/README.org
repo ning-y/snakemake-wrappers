@@ -6,7 +6,9 @@
 rule group_by_genes:
     output: "genes.grp"
     input: "input.vcf.gz"
-    params: info = "Gene.refGeneWithVer"
+    params:
+        info = "Gene.refGeneWithVer",
+        min_variants = 5
     wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/fc7234e/epacts/make-gene-group-file"
 #+end_src
 
@@ -18,7 +20,12 @@ rule group_by_genes:
   An output file to write the marker group file to.
 - params.info ::
   The VCF INFO field with which to obtain ANNOVAR-style semicolon-delimited gene info
+- params.min_variants ::
+  /Optional./
+  A gene must have more than or equals to ~params.min_variants~ variants to appear in the output.
+  If not specified, ~params.min_variants <- -Inf~.
 
 * Changelog
 
+- Latest commit in this wrapper :: Add params.min_variant criteria
 - ~46c6b0f~ :: Initial commit
