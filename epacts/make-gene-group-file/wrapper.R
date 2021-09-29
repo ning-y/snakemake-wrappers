@@ -3,7 +3,7 @@ suppressPackageStartupMessages({
   library(tidyverse)
   library(assertthat)})
 
-assert_that(!is.null(snakemake@params[["info"]]))
+invisible(assert_that(!is.null(snakemake@params[["info"]])))
 
 vcf <- read.vcfR(snakemake@input[[1]])
 tb <- as_tibble(getFIX(vcf)) %>%
@@ -28,8 +28,9 @@ min_variants <- ifelse(
   is.null(snakemake@params[["min_variants"]]),
   -Inf, snakemake@params[["min_variants"]])
 
-lines <- names(markers) %>%
-  keep(function(xs) length(xs) >= min_variants) %>%
-  sapply(function(gene) paste0(c(gene, markers[[gene]]), collapse="\t"))
+markers <- markers %>%
+  keep(function(xs) length(xs) >= min_variants)
 
-write_lines(lines, snakemake@output[[1]])
+names(markers) %>%
+  sapply(function(gene) paste0(c(gene, markers[[gene]]), collapse="\t")) %>%
+  write_lines(snakemake@output[[1]])

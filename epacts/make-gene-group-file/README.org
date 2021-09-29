@@ -27,5 +27,6 @@ rule group_by_genes:
 
 * Changelog
 
-- Latest commit in this wrapper :: Add params.min_variant criteria
+- Latest commit in this wrapper :: Fix an important error in params.min_variants
+- ~ff209e7~ :: Add params.min_variants criteria
 - ~46c6b0f~ :: Initial commit
