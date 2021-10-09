@@ -1,14 +1,19 @@
 suppressPackageStartupMessages({
   library(tidyverse)
-  library(latex2exp)})
+  library(latex2exp)
+  library(assertthat)})
+
+invisible(assert_that(snakemake@params[["test"]] %in% c("emmaxCMC", "skato")))
+col_types <- case_when(
+  snakemake@params[["test"]] == "emmaxCMC" ~ "ciiciiidddddd",
+  snakemake@params[["test"]] == "skato"    ~ "ccccidiiidd")
+if (is.na(col_types)) col_types <- NULL  # NULL means autodetect in read_tsv
 
 # read_tsv guesses #CHROM column to be numeric, causing parsing errors when it
 # reaches X and Y, so make it explicitly character. Full list of columns:
 # #CHROM, BEGIN, END, MARKER_ID, NS, FRAC_WITH_RARE, NUM_ALL_VARS,
 # NUM_PASS_VARS, NUM_SING_VARS, PVALUE, STATRHO
-results <- read_tsv(
-    snakemake@input[[1]],
-    col_types="ccccidiiidd") %>%
+results <- read_tsv(snakemake@input[[1]], col_types=col_types) %>%
   select(observed_p=PVALUE) %>%
   # For the genomic inflaction factor calculation, because median considers NA
   filter(!is.na(observed_p)) %>%

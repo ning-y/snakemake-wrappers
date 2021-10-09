@@ -6,6 +6,7 @@
 rule epacts_qq:
     output: "qq.png"
     input: "results.epacts"
+    params: test = "emmaxCMC"  # or "skato"
     wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/fc7234e/epacts/qqplot"
 #+end_src
 
@@ -16,9 +17,13 @@ rule epacts_qq:
 - output ::
   An output file to write the qqplot file to.
   This will be passed to ~`ggplot2::ggsave~, so whatever is allowed there is allowed here.
+- params.test ::
+  The type of EPACTS test which generated the input to this wrapper.
+  Allowed values: "emmaxCMC", "skato"
 
 * Changelog
 
+- Latest commit in this wrapper :: Accept EPACTS results from emmaxCMC, not just skat-o
 - ~ceabca1~ :: Fix observed median chisq calculation
 - ~f2781f2~ :: Ignore NA in genomic inflation factor calculations, fix parsing errors
 - ~4a00523~ :: Annotate plots with the genomic inflation factor
