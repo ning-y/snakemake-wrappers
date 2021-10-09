@@ -25,7 +25,8 @@ rule epacts_qq:
 
 * Changelog
 
-- Latest commit in this wrapper :: Annotate with R-squared value too
+- Latest commit in this wrapper :: Format with three rather than four trailing digits
+- ~6406e1b~ :: Annotate with R-squared value too
 - ~85fe75c~ :: Accept EPACTS results from emmaxCMC, not just skat-o
 - ~ceabca1~ :: Fix observed median chisq calculation
 - ~f2781f2~ :: Ignore NA in genomic inflation factor calculations, fix parsing errors

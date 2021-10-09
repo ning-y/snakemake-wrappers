@@ -40,8 +40,8 @@ plot <- ggplot(results, aes(x=expected_logp, y=observed_logp)) +
     "text", x=-Inf, y=Inf, hjust=-0.1, vjust=1.5, parse=TRUE,
     label=str_glue(
       "list(lambda[GC] == {lgc}, italic(R)^2 == {rsq})",
-      lgc=formatC(genomic_inflation_factor, digits=4, format="f"),
-      rsq=formatC(rsq, digits=4, format="f"))) +
+      lgc=formatC(genomic_inflation_factor, digits=3, format="f"),
+      rsq=formatC(rsq, digits=3, format="f"))) +
   xlab(TeX("Expected $-\\log_{10}(p)$")) +
   ylab(TeX("Observed $-\\log_{10}(p)$"))
 
