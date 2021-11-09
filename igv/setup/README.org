@@ -1,0 +1,23 @@
+#+TITLE: Set-up IGV
+
+* Example
+
+#+begin_src
+rule igv_setup:
+    output: directory("programs/IGV_{version}")
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/870f4d7/igv/setup"
+#+end_src
+
+* Parameters
+
+- output ::
+  Filename for the output IGV directory.
+  The basename must follow the form ~IGV_2.11.3~, so that we can infer the version number.
+
+* Details
+
+Adapted from a [[https://gist.github.com/mdshw5/1a32d1ee141aa73af421299a8d0a6e4a][GitHub Gist by mdshw5]].
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit

@@ -25,7 +25,7 @@ rule epacts_qq:
 
 * Changelog
 
-- Latest commit in this wrapper :: Format with three rather than four trailing digits
+- ~99c7983~ :: Format with three rather than four trailing digits
 - ~6406e1b~ :: Annotate with R-squared value too
 - ~85fe75c~ :: Accept EPACTS results from emmaxCMC, not just skat-o
 - ~ceabca1~ :: Fix observed median chisq calculation

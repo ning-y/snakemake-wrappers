@@ -1,0 +1,43 @@
+#+TITLE: Screenshot an alignment's IGV visualization
+
+* Example
+
+#+begin_src
+rule igv_screenshot:
+    output: png = "screenshot.png", batch = temp("batch.txt")
+    input: igv = "IGV_2.11.3", bam = "alignment.bam", bai = "alignment.bam.bai"
+    params: genome = "b37", chrom = 21, pos_from = 36164605, pos_to = 36164610
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/870f4d7/igv/screenshot"
+#+end_src
+
+* Parameters
+
+- input.igv ::
+  Filename for the IGV directory, containing ~igv.sh~.
+- input.bam ::
+  BAM files containing the alignments to visualize.
+- input.bai ::
+  BAI index file for /input.bam/.
+- output.batch ::
+  A file where the automatically-generated IGV "batch" command file will be stored.
+  It is a good idea to wrap this in the /temp/ directive.
+- output.png ::
+  Filename of the output screenshot.
+- param.genome::
+  An IGV genome to load.
+  As in, the dropdown menu option, not a whole FASTA file or anything like that.
+- param.chrom ::
+  Chromosome part of the genomic loci to screenshot.
+- param.pos_from ::
+  Left-most genomic position in the screenshot.
+- param.pos_to ::
+  Right-most genomic position in the screenshot.
+
+* Details
+
+Adapted from a [[https://gist.github.com/mdshw5/1a32d1ee141aa73af421299a8d0a6e4a][GitHub Gist by mdshw5]].
+IGV has a minimum width for the genomic region shown, so /param.pos_from/ and /param.pos_to/ are not always strictly followed if its range is tiny.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit
