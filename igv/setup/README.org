@@ -20,4 +20,5 @@ Adapted from a [[https://gist.github.com/mdshw5/1a32d1ee141aa73af421299a8d0a6e4a
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- Latest commit in this wrapper :: Fix MissingOutputException if output is not in the working directory
+- ~db2cbb7~ :: Initial commit

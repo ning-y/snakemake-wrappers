@@ -40,4 +40,4 @@ IGV has a minimum width for the genomic region shown, so /param.pos_from/ and /p
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- ~db2cbb7~ :: Initial commit

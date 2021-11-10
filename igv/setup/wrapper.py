@@ -15,6 +15,7 @@ igv_download_url = f"https://data.broadinstitute.org/igv/projects/downloads/{igv
 # sponge prevents SIGPIPE from curl, which would mark this job failed.
 # "|| true" would fix it too, but I'm afraid it would mask real errors.
 shell(f"""
+    cd {os.path.dirname(snakemake.output[0])}
     curl {igv_download_url} | sponge | jar x
     chmod +x IGV_{igv_version}/igv.sh
 """)
