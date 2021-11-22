@@ -14,8 +14,11 @@ igv_download_url = f"https://data.broadinstitute.org/igv/projects/downloads/{igv
 # See: https://unix.stackexchange.com/a/229051/285080.
 # sponge prevents SIGPIPE from curl, which would mark this job failed.
 # "|| true" would fix it too, but I'm afraid it would mask real errors.
+
+# os.path.dirname returns empty string if snakemake.output[0] is exactly in the
+# working directory. Then, without "./", this shell command would "cd " to ~/.
 shell(f"""
-    cd {os.path.dirname(snakemake.output[0])}
+    cd ./{os.path.dirname(snakemake.output[0])}
     curl {igv_download_url} | sponge | jar x
     chmod +x IGV_{igv_version}/igv.sh
 """)

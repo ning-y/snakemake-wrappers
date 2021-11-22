@@ -16,6 +16,8 @@ An opinionated set of personal Snakemake wrappers.
 - [[bcftools/subset-samples][bcftools/subset-samples]] :: Subset one or more samples from a multi-sample VCF file, removing variants not in the subset
 - [[epacts/make-gene-group-file][epacts/make-gene-group-file]] :: Create a gene-based marker group file for an ANNOVAR-annotated VCF
 - [[epacts/qqplot][epacts/qqplot]] :: Generate a Q-Q plot from EPACTS results
+- [[igv/screenshot][igv/screenshot]] :: Visualize an alignment with IGV
+- [[igv/screenshot][igv/setup]] :: Prepare for igv/screenshot
 - [[maf/concat][maf/concat]] :: Concatenate MAF files
 - [[r-snprelate/pca][r-snprelate/pca]] :: Calculate PCA coordinates from a VCF file
 - [[samtools/tabix][samtools/tabix]] :: Index VCF files

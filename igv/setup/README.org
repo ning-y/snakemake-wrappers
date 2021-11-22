@@ -5,7 +5,7 @@
 #+begin_src
 rule igv_setup:
     output: directory("programs/IGV_{version}")
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/870f4d7/igv/setup"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/7c492ef/igv/setup"
 #+end_src
 
 * Parameters
@@ -17,8 +17,10 @@ rule igv_setup:
 * Details
 
 Adapted from a [[https://gist.github.com/mdshw5/1a32d1ee141aa73af421299a8d0a6e4a][GitHub Gist by mdshw5]].
+xvfb-run needs to be available natively.
 
 * Changelog
 
-- Latest commit in this wrapper :: Fix MissingOutputException if output is not in the working directory
+- Latest commit in this wrapper :: Fix IGV being downloaded into home directory if output is in working directory
+- ~7c492ef~ :: Fix MissingOutputException if output is not in the working directory
 - ~db2cbb7~ :: Initial commit
