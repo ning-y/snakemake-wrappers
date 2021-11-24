@@ -4,7 +4,7 @@ __author__ = "Ning Yuan"
 import os, re
 from snakemake.shell import shell
 
-assert len(snakemake.input) > 0
+assert hasattr(snakemake.input, "fastqs")
 assert hasattr(snakemake.output, "id_project")
 assert hasattr(snakemake.output, "id_biosample")
 assert hasattr(snakemake.output, "id_appsession")
@@ -19,7 +19,7 @@ shell(f"""
 
     bs upload dataset --project $(cat {snakemake.output.id_project}) \
         --allow-invalid-readnames \
-        --biosample-name {name_biosample} {snakemake.input}
+        --biosample-name {name_biosample} {snakemake.input.fastqs}
 
     # Query for ID of the just-uploaded biosamples, because bs upload dataset does
     # not return them. The loop is necessary, because it may take a few seconds

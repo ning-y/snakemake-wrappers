@@ -13,7 +13,7 @@ rule download_germline_variant_call_results:
     params: delete_project = True
     priority: -1
     shadow: "minimal"
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/974d4d3/basespace/dragen-germline-retrieve"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/311307b/basespace/dragen-germline-retrieve"
 #+end_src
 
 * Parameters
@@ -76,4 +76,4 @@ Examples of /to_download/ files:
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- ~311307b~ :: Initial commit

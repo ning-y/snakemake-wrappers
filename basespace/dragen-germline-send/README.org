@@ -8,7 +8,8 @@ rule send_for_germline_variant_call:
         id_project = "{sample}.project.id",
         id_biosample = "{sample}.biosample.id",
         id_appsession = "{sample}.appsession.id"
-    input: "fastq/{sample}_S1_L001_R1_001.fastq.gz", "fastq/{sample}_S2_L001_R2_001.fastq.gz"
+    input:
+        fastqs = "fastq/{sample}_S1_L001_R1_001.fastq.gz", "fastq/{sample}_S2_L001_R2_001.fastq.gz"
     params: DRAGEN_VERSION = "3.8.4", HT_REF = "hg38-altaware-graph.v8"
     wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/974d4d3/basespace/dragen-germline-send"
 #+end_src
@@ -23,7 +24,7 @@ rule send_for_germline_variant_call:
   File to save the biosample ID into
 - output.id_appsession ::
   File to save the AppSession ID into
-- input ::
+- input.fastqs ::
   A list of FASTQ files in basespace's expected format: "SampleName_S1_L001_R1_001.fastq.gz".
 - params.DRAGEN_VERSION ::
   The version of DRAGEN Germline to use
@@ -40,4 +41,5 @@ The created project is destroyed by the /[[../dragen-germline-retrieve][dragen-g
 
 * Changelog
 
+- Latest commit in this wrapper :: Specify FASTQ files in input.fastqs rather than input
 - ~974d4d3~ :: Initial commit
