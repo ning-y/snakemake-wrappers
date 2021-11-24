@@ -7,7 +7,7 @@ rule rename_chroms:
     output: "output.bed"
     input: "input.bed"
     params: replace = {f"chr{z}": z for z in [*range(0, 23), "X", "Y"]}
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/870f4d7/bedtools/rename-chroms"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/bdb8ddd/bedtools/rename-chroms"
 #+end_src
 
 * Parameters

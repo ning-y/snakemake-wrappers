@@ -1,0 +1,41 @@
+#+TITLE: Send single-sample FASTQ files for germline variant calling
+
+* Example
+
+#+begin_src
+rule send_for_germline_variant_call:
+    output:
+        id_project = "{sample}.project.id",
+        id_biosample = "{sample}.biosample.id",
+        id_appsession = "{sample}.appsession.id"
+    input: "fastq/{sample}_S1_L001_R1_001.fastq.gz", "fastq/{sample}_S2_L001_R2_001.fastq.gz"
+    params: DRAGEN_VERSION = "3.8.4", HT_REF = "hg38-altaware-cnv-anchor.v8"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/870f4d7/basespace/dragen-germline-send"
+#+end_src
+
+* Parameters
+
+- output.id_project ::
+  File to save the project ID into
+- output.id_biosample ::
+  File to save the biosample ID into
+- output.id_appsession ::
+  File to save the AppSession ID into
+- input ::
+  A list of FASTQ files in basespace's expected format: "SampleName_S1_L001_R1_001.fastq.gz".
+- params.DRAGEN_VERSION ::
+  The version of DRAGEN Germline to use
+- params.HT_REF ::
+  The reference genome to use.
+  Examples include: hg19-altaware-cnv-anchor.v8, hg38-altaware-cnv-anchor.v8, grch37-cnv-anchor.v8, hg38-altaware-nohla-cnv-anchor.v8 hs37d5-cnv-anchor.v8
+
+* Details
+
+*This wrapper assumes the existence of an authenticated basespace CLI (bs) in PATH.*
+
+Each execution of this recipe creates its own project, with name set as ~f"dragen-germline-for-{sample}"~.
+The created project is destroyed by the /[[../dragen-germline-retrieve][dragen-germline-retrieve]]/ wrapper.
+
+* Changelog
+
+- ~Latest commit in this wrapper~ :: Initial commit

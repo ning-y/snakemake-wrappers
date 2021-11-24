@@ -6,7 +6,7 @@
 rule rename_chroms:
     output: "A.count"
     input: "A.bed"
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/870f4d7/bedtools/cov-length"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/4c7e09f/bedtools/cov-length"
 #+end_src
 
 * Parameters
@@ -23,5 +23,5 @@ Strandedness is ignored.
 
 * Changelog
 
-- Latest commit in this wrapper :: Fix error on unsorted input BED files
+- ~4c7e09f~ :: Fix error on unsorted input BED files
 - ~03954c9~ :: Initial commit

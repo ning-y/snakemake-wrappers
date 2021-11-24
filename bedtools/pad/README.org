@@ -9,7 +9,7 @@ rule pad_bed:
         bed = "A.bed",
         genome = "hg19.genome"
     params: pad_by = 150
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/870f4d7/bedtools/pad"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/6f0d710/bedtools/pad"
 #+end_src
 
 * Parameters
