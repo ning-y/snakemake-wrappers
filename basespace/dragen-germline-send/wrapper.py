@@ -14,9 +14,6 @@ assert hasattr(snakemake.params, "HT_REF")
 name_project = f"dragen-germline-for-{snakemake.wildcards.sample}"
 name_biosample = snakemake.wildcards.sample
 
-# See: https://unix.stackexchange.com/a/229051/285080.
-# sponge prevents SIGPIPE from curl, which would mark this job failed.
-# "|| true" would fix it too, but I'm afraid it would mask real errors.
 shell(f"""
     bs project create --name={name_project} --terse > {snakemake.output.id_project}
 

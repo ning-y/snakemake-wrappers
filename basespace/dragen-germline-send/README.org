@@ -9,12 +9,14 @@ rule send_for_germline_variant_call:
         id_biosample = "{sample}.biosample.id",
         id_appsession = "{sample}.appsession.id"
     input: "fastq/{sample}_S1_L001_R1_001.fastq.gz", "fastq/{sample}_S2_L001_R2_001.fastq.gz"
-    params: DRAGEN_VERSION = "3.8.4", HT_REF = "hg38-altaware-cnv-anchor.v8"
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/870f4d7/basespace/dragen-germline-send"
+    params: DRAGEN_VERSION = "3.8.4", HT_REF = "hg38-altaware-graph.v8"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/974d4d3/basespace/dragen-germline-send"
 #+end_src
 
 * Parameters
 
+- wildcards.sample ::
+  Sample name (must appear as a wildcard)
 - output.id_project ::
   File to save the project ID into
 - output.id_biosample ::
@@ -27,7 +29,7 @@ rule send_for_germline_variant_call:
   The version of DRAGEN Germline to use
 - params.HT_REF ::
   The reference genome to use.
-  Examples include: hg19-altaware-cnv-anchor.v8, hg38-altaware-cnv-anchor.v8, grch37-cnv-anchor.v8, hg38-altaware-nohla-cnv-anchor.v8 hs37d5-cnv-anchor.v8
+  Examples include: hg19-altaware-cnv-anchor.v8, hg19-graph-enabled.v8, grch37-cnv-anchor.v8, hg38-altaware-cnv-anchor.v8, hg38-altaware-nohla-cnv-anchor.v8, hg38-altaware-graph.v8, hs37d5-cnv-anchor.v8 hs37d5-graph-enabled.v8
 
 * Details
 
@@ -38,4 +40,4 @@ The created project is destroyed by the /[[../dragen-germline-retrieve][dragen-g
 
 * Changelog
 
-- ~Latest commit in this wrapper~ :: Initial commit
+- ~974d4d3~ :: Initial commit

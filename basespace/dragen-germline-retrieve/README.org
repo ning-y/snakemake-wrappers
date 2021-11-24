@@ -1,0 +1,79 @@
+#+TITLE: Download results of basespace/dragen-germline-retrieve
+
+* Example
+
+#+begin_src
+rule download_germline_variant_call_results:
+    output:
+        to_download = ["somedir/{sample}.bam", "somedir/{sample.hard-filtered.gvcf.gz"],
+        id_dataset = temp("{sample}.dataset.id")
+    input:
+        id_project = "{sample}.project.id",
+        id_appsession = "{sample}.appsession.id"
+    params: delete_project = True
+    priority: -1
+    shadow: "minimal"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/974d4d3/basespace/dragen-germline-retrieve"
+#+end_src
+
+* Parameters
+
+- wildcards.sample ::
+  Sample name (must appear as a wildcard)
+- output.to_download ::
+  A list of files to be downloaded.
+  The basename of each file (filename including extension sans directory) will be matched against the AppSession output.
+  See details for examples
+- output.id_dataset ::
+  File to save the AppSession dataset ID into
+- input.id_project ::
+  File to save the project ID into
+- input.id_appsession ::
+  File to save the AppSession ID into
+- params.delete_project ::
+  /Optional./
+  If the project should be deleted after download has finished.
+  Defaults to /True/
+
+* Details
+
+*This wrapper assumes the existence of an authenticated basespace CLI (bs) in PATH.*
+*shadow: "minimal" is highly recommended, because bs download makes a mess of the working directory.*
+*priority: -1 is highly recommended, because if this rule is invoked while its target AppSession is still running, it will await the AppSession.*
+
+Unless /params.delete_project/ is /False/, the project at /input.id_project/ will be destroyed.
+
+Examples of /to_download/ files:
+
+- A0155-1-replay.json
+- A0155-1.bam.bai
+- A0155-1.bam.md5sum
+- A0155-1.fastqc_metrics.csv
+- A0155-1.fragment_length_hist.csv
+- A0155-1.gvcf_metrics.csv
+- A0155-1.hard-filtered.gvcf.gz
+- A0155-1.hard-filtered.gvcf.gz.md5sum
+- A0155-1.hard-filtered.gvcf.gz.tbi
+- A0155-1.hard-filtered.vcf.gz
+- A0155-1.hard-filtered.vcf.gz.md5sum
+- A0155-1.hard-filtered.vcf.gz.tbi
+- A0155-1.mapping_metrics.csv
+- A0155-1.metrics.json
+- A0155-1.multiqc_report.html
+- A0155-1.pileup.txt
+- A0155-1.ploidy_estimation_metrics.csv
+- A0155-1.roh.bed
+- A0155-1.roh_metrics.csv
+- A0155-1.time_metrics.csv
+- A0155-1.bam
+- A0155-1.trimmer_metrics.csv
+- A0155-1.vc_metrics.csv
+- A0155-1.wgs_contig_mean_cov.csv
+- A0155-1.wgs_coverage_metrics.csv
+- A0155-1.wgs_fine_hist.csv
+- A0155-1.wgs_hist.csv
+- A0155-1.wgs_overall_mean_cov.csv
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit
