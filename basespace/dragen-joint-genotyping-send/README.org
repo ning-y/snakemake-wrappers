@@ -1,0 +1,42 @@
+#+TITLE: Send GVCF files for joint genotyping
+
+* Example
+
+#+begin_src
+rule send_for_joint_genotyping:
+    output:
+        id_project = "joint-genotyping.project.id",
+        ids_datasets = "gvcfs.datasets.ids",
+        id_appsession = "joint-genotyping.appsession.id"
+    input:
+        gvcfs = ["gvcfs/S001.gvcf.gz", "gvcfs/S002.gvcf.gz"]
+    params: DRAGEN_VERSION = "3.8.4", HT_REF = "hg38-altaware-cnv-anchor.v8"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/974d4d3/basespace/dragen-joint-genotyping-send"
+#+end_src
+
+* Parameters
+
+- output.id_project ::
+  File to save the project ID into
+- output.ids_datasets ::
+  File to save the dataset IDs of the uploaded input.gvcfs to.
+- output.id_appsession ::
+  File to save the AppSession ID into
+- input.gvcfs ::
+  A list of GVCF files
+- params.DRAGEN_VERSION ::
+  The version of DRAGEN Joint Genotyping Pipeline to use
+- params.HT_REF ::
+  The reference genome to use.
+  Examples include: hg19-altaware-cnv-anchor.v8, grch37-cnv-anchor.v8, hg38-altaware-cnv-anchor.v8, hg38-altaware-nohla-cnv-anchor.v8, hs37d5-cnv-anchor.v8, custom.v8
+
+* Details
+
+*This wrapper assumes the existence of an authenticated basespace CLI (bs) in PATH.*
+
+Each execution of this recipe creates its own project, with name set as ~f"dragen-joint-genotyping-{iso_time}"~, where ~iso_time~ is the string returned by python3's ~datetime.datetime.now().isoformat()~.
+The created project is destroyed by the /[[../dragen-joint-joint-genotyping-retrieve][dragen-joint-genotyping-retrieve]]/ wrapper.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit
