@@ -6,7 +6,7 @@
 rule send_for_joint_genotyping:
     output:
         id_project = "joint-genotyping.project.id",
-        ids_datasets = "gvcfs.datasets.ids",
+        ids_datasets = temp("gvcfs.datasets.ids"),
         id_appsession = "joint-genotyping.appsession.id"
     input:
         gvcfs = ["gvcfs/S001.gvcf.gz", "gvcfs/S002.gvcf.gz"]
@@ -39,4 +39,4 @@ The created project is destroyed by the /[[../dragen-joint-joint-genotyping-retr
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- ~d0b2184~ :: Initial commit

@@ -1,4 +1,4 @@
-#+TITLE: Download results of basespace/dragen-germline-retrieve
+#+TITLE: Download results of basespace/dragen-germline-send
 
 * Example
 
@@ -27,9 +27,9 @@ rule download_germline_variant_call_results:
 - output.id_dataset ::
   File to save the AppSession dataset ID into
 - input.id_project ::
-  File to save the project ID into
+  File containing the project ID
 - input.id_appsession ::
-  File to save the AppSession ID into
+  File containing the AppSession ID
 - params.delete_project ::
   /Optional./
   If the project should be deleted after download has finished.

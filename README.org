@@ -5,6 +5,7 @@ An opinionated set of personal Snakemake wrappers.
 - [[basespace/dragen-germline-send][basespace/dragen-germline-send]] :: Send single-sample FASTQ reads for germline variant calling via Illumina BaseSpace
 - [[basespace/dragen-germline-retrieve][basespace/dragen-germline-retrieve]] :: Download the results of [[basespace/dragen-germline-send][basespace/dragen-germline-send]]
   [[basespace/dragen-joint-genotyping-send][basespace/dragen-joint-genotyping-send]] :: Send GVCF files for joint genotyping
+- [[basespace/dragen-joint-genotyping-retrieve][basespace/dragen-joint-genotyping-retrieve]] :: Download the results of [[basespace/dragen-joint-genotyping-send][basespace/dragen-joint-genotyping-send]]
 - [[bedtools/cov-length][bedtools/cov-length]] :: Count the number of bases covered by a BED file
 - [[bedtools/pad][bedtools/pad]] :: Extend each feature in a BED file
 - [[bedtools/rename-chroms][bedtools/rename-chroms]] :: Rename BED file chromosomes

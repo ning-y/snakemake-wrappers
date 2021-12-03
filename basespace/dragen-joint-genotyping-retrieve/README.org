@@ -1,0 +1,56 @@
+#+TITLE: Download results of basespace/dragen-joint-genotyping-send
+bs appsession contents --id $(cat intermediates/020-variant-call-family-members/joint-genotyping.appsession.id) --filter-field FilePath --filter-term stdout.log --terse | xargs bs download file --no-metadata --output stdout.log --id
+* Example
+
+#+begin_src
+rule download_germline_variant_call_results:
+    output:
+        to_download = ["dragen-joint.hard-filtered.vcf.gz"]
+    input:
+        id_project = "joint-genotyping.project.id",
+        id_appsession = "joint-genotyping.appsession.id"
+    params: delete_project = True
+    priority: -1
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/311307b/basespace/dragen-joint-genotyping-retrieve"
+#+end_src
+
+* Parameters
+
+- output.to_download ::
+  A list of files to be downloaded.
+  The basename of each file (filename including extension sans directory) will be matched against the AppSession output.
+  See details for examples
+- input.id_project ::
+  File containing the project ID
+- input.id_appsession ::
+  File containing the AppSession ID
+- params.delete_project ::
+  /Optional./
+  If the project should be deleted after download has finished.
+  Defaults to /True/
+
+* Details
+
+*This wrapper assumes the existence of an authenticated basespace CLI (bs) in PATH.*
+*priority: -1 is highly recommended, because if this rule is invoked while its target AppSession is still running, it will await the AppSession.*
+
+Unless /params.delete_project/ is /False/, the project at /input.id_project/ will be destroyed.
+
+Examples of /to_download/ files:
+
+- appVersion.log
+- dragen-joint-replay.json
+- dragen-joint.hard-filtered.vcf.gz.md5sum
+- dragen-joint.hard-filtered.vcf.gz.tbi
+- dragen-joint.time_metrics.csv
+- dragen-joint.vc_metrics.csv
+- dragen-joint.hard-filtered.vcf.gz
+- dragen-joint.vcf.gz.tbi
+- stdout.log
+- streaming_log_root.csv
+- dragen-joint.vcf.gz
+- dragen-joint.vcf.gz.md5sum
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit
