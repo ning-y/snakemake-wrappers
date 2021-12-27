@@ -1,0 +1,31 @@
+#+TITLE: Liftover VCF from one assembly to another
+
+* Example
+
+#+begin_src
+rule liftover:
+    output: passes = "output.vcf", fails = "output.vcf.unmap"
+    input:
+        vcf = "input.vcf",
+        chain = "hg38ToHg19.over.chain.gz",
+        ref = "hg19.fa"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/ce06eed/crossmap/liftover"
+#+end_src
+
+* Parameters
+
+- output.passes ::
+  An output VCF file for records successfully lifted over.
+- output.fails ::
+  An output VCF file for records which failed to be lifted over.
+  The name of this file must strictly be f"{output.vcf}.unmap" --- this seems to be hard-coded in crossmap.
+- input.vcf ::
+  A VCF or file, possibly bgzipped.
+- input.chain ::
+  A chain file.
+- input.fa ::
+  A FASTA file for the target assembly.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit

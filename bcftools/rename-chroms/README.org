@@ -3,12 +3,11 @@
 * Example
 
 #+begin_src
-# Filter for passing variants
 rule rename_chroms:
-    output: "output.vcf.gz"
-    input: "input.vcf.gz"
+    output: "output.vcf.gz", tmp = temp("chrom.txt")
+    input: vcf = "input.vcf.gz"
     params: rename = {f"chr{z}": z for z in [*range(0, 23), "X", "Y"]}
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/bcftools/rename-chroms"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/ce06eed/bcftools/rename-chroms"
 #+end_src
 
 * Parameters
@@ -25,4 +24,4 @@ rule rename_chroms:
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- ~ce06eed~ :: Initial commit
