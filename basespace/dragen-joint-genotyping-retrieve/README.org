@@ -11,7 +11,7 @@ rule download_germline_variant_call_results:
         id_appsession = "joint-genotyping.appsession.id"
     params: delete_project = True
     priority: -1
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/311307b/basespace/dragen-joint-genotyping-retrieve"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/4df3270/basespace/dragen-joint-genotyping-retrieve"
 #+end_src
 
 * Parameters
@@ -53,4 +53,4 @@ Examples of /to_download/ files:
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- ~4df3270~ :: Initial commit

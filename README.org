@@ -15,6 +15,7 @@ An opinionated set of personal Snakemake wrappers.
 - [[bcftools/filter-by-expression][bcftools/filter-by-expression]] :: Include or exclude variants from a VCF file by bcftools expressions
 - [[bcftools/merge][bcftools/merge]] :: Merge samples of VCF files
 - [[bcftools/normalize][bcftools/normalize]] :: Left-align and decompose multiallelic records
+- [[bcftools/rename-chroms][bcftools/rename-chroms]] :: Rename VCF file chromosomes
 - [[bcftools/scatter][bcftools/scatter]] :: Split VCF files into many chunks
 - [[bcftools/semijoin][bcftools/semijoin]] :: Semi join one VCF file against another
 - [[bcftools/subset-samples][bcftools/subset-samples]] :: Subset one or more samples from a multi-sample VCF file, removing variants not in the subset

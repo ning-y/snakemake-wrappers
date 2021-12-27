@@ -1,0 +1,28 @@
+#+TITLE: Rename VCF file chromosomes
+
+* Example
+
+#+begin_src
+# Filter for passing variants
+rule rename_chroms:
+    output: "output.vcf.gz"
+    input: "input.vcf.gz"
+    params: rename = {f"chr{z}": z for z in [*range(0, 23), "X", "Y"]}
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/bcftools/rename-chroms"
+#+end_src
+
+* Parameters
+
+- output.vcf ::
+  An output file ending in "vcf.gz" if output should be bgzipped VCF, otherwise ".vcf" for VCF.
+- output.tmp ::
+  bcftools must read old to new chromosome names maps from an input text file.
+  This represents the location where this file, which is automatically generated, should be placed.
+- input.vcf ::
+  An input VCF or bgzipped VCF file.
+- params.rename ::
+  Dictionary where the chromosome names in the keys are replaced by their values.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit
