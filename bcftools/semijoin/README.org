@@ -28,8 +28,9 @@ rule combine_vcfs:
 
 * Details
 
-output is a VCF of records from input.subject which also appear in input.object.
-Records are considered the same only if they have the same POS, REF, and ALT; i.e. it'd be a good idea to run [[../normalize][bcftools/normalize]] first.
+Outputs a VCF of records from input.subject which also appear in input.object.
+Records are considered the same only if they have the same POS, REF, and ALT.
+So, it'd be a good idea to run [[../normalize][bcftools/normalize]] first.
 
 * Changelog
 

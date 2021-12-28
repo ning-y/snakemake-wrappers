@@ -9,7 +9,7 @@ rule liftover:
         vcf = "input.vcf",
         chain = "hg38ToHg19.over.chain.gz",
         ref = "hg19.fa"
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/ce06eed/crossmap/liftover"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/c01659e/crossmap/liftover"
 #+end_src
 
 * Parameters
@@ -28,4 +28,4 @@ rule liftover:
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- c01659e :: Initial commit

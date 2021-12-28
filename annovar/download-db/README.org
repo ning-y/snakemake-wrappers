@@ -1,0 +1,23 @@
+#+TITLE: Download databases for downstream ANNOVAR annotation
+
+* Example
+
+#+begin_src
+rule download_annovar_db:
+    output: "hg19_refGeneWithVer.txt"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/6751888/annovar/download-db"
+#+end_src
+
+* Parameters
+
+- output ::
+  File path to place the database's txt file.
+  The database txt file must be in the form ~f"{buildver}_{table}.txt"~.
+
+* Details
+
+I haven't tested this wrapper.
+
+* Changelog
+
+- Latest commit in this wrapper :: Initial commit
