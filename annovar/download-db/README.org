@@ -20,4 +20,4 @@ I haven't tested this wrapper.
 
 * Changelog
 
-- Latest commit in this wrapper :: Initial commit
+- ~2a803ce~ :: Initial commit

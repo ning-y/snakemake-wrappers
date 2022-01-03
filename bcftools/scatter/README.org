@@ -3,19 +3,30 @@
 * Example
 
 #+begin_src
-rule scatter_vcfs:
+checkpoint scatter_vcfs:
     input: "input.vcf.gz"
-    output: scatter.split("{scatteritem}.vcf.gz")
+    output: directory("scattered")
+    params: output_type = "z", variants_per_chunk = 10000
     wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/bee26e6/bcftools/scatter"
 #+end_src
 
 * Parameters
 
 - input ::
-  One or more input bgzipped VCF file, all with the same set of samples.
+  An input VCF file, possibly bgzipped
 - output ::
-  One or more output files ending in "vcf.gz" if output should be bgzipped VCF, otherwise ".vcf" for VCF.
+  A directory to place output chunks
+- params.output_type ::
+  Output type for chunks: "b" for compressed, "u" for uncompressed BCF; "z" for compressed, "v" for uncompressed VCF
+- params.variants_per_chunk ::
+  Number of variants to include in each chunk
+
+* Details
+
+To perform a computation on the scattered chunks, write a rule with wildcards matching VCF files (or BCF, or whatever) in the output directory, which places its output in a second output directory.
+Then, write another rule to concat all the VCF files (or whatever) in the second output directory, using an input function which infers the contents of the second output directory using this wrapper as checkpoint.
 
 * Changelog
 
+- Latest commit in this wrapper :: Rework to use bcftools' /scatter/ plugin
 - ~44ac3dd~ :: Initial commit
