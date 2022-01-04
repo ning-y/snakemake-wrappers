@@ -7,7 +7,7 @@ checkpoint scatter_vcfs:
     input: "input.vcf.gz"
     output: directory("scattered")
     params: output_type = "z", variants_per_chunk = 10000
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/bee26e6/bcftools/scatter"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/2469d2b/bcftools/scatter"
 #+end_src
 
 * Parameters
@@ -28,5 +28,5 @@ Then, write another rule to concat all the VCF files (or whatever) in the second
 
 * Changelog
 
-- Latest commit in this wrapper :: Rework to use bcftools' /scatter/ plugin
+- ~2469d2b~ :: Rework to use bcftools' /scatter/ plugin
 - ~44ac3dd~ :: Initial commit

@@ -4,8 +4,8 @@
 
 #+begin_src
 rule rename_chroms:
-    output: "output.vcf.gz", tmp = temp("chrom.txt")
-    input: vcf = "input.vcf.gz"
+    output: vcf = "output.vcf.gz", tmp = temp("chrom.txt")
+    input: "input.vcf.gz"
     params: rename = {f"chr{z}": z for z in [*range(0, 23), "X", "Y"]}
     wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/ce06eed/bcftools/rename-chroms"
 #+end_src
@@ -17,7 +17,7 @@ rule rename_chroms:
 - output.tmp ::
   bcftools must read old to new chromosome names maps from an input text file.
   This represents the location where this file, which is automatically generated, should be placed.
-- input.vcf ::
+- input ::
   An input VCF or bgzipped VCF file.
 - params.rename ::
   Dictionary where the chromosome names in the keys are replaced by their values.
