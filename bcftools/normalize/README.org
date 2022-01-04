@@ -23,6 +23,9 @@ rule normalize_variants:
   Uncompressed reference FASTA file.
 - output ::
   An output file ending in "vcf.gz" if output should be bgzipped VCF, otherwise ".vcf" for VCF.
+- params.force ::
+  /Optional/.
+  Boolean True or False if the ~--force~ option should be used.
 
 * Details
 
@@ -31,4 +34,5 @@ Once split, records with ~ALT="*"~ are removed, because they should already repr
 
 * Changelog
 
+- Latest commit in this wrapper :: Allow ~--force~ via params.force
 - ~237b312~ :: Initial commit
