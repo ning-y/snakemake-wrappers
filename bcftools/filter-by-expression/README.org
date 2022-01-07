@@ -8,7 +8,7 @@ rule filter_passing:
     input: "input.vcf.gz"
     output: "output.vcf.gz"
     params: include = "FILTER=\"PASS\""
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/43bc9d96/bcftools/filter-by-expression"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/c15d239/bcftools/filter-by-expression"
 #+end_src
 
 * Parameters

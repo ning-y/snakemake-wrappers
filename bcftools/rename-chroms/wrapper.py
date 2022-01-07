@@ -6,7 +6,8 @@ from snakemake.shell import shell
 assert len(snakemake.output) == 2
 assert hasattr(snakemake.output, "vcf")
 assert hasattr(snakemake.output, "tmp")
-assert len(snakemake.input) == 1
+assert hasattr(snakemake.input, "vcf")
+assert str(snakemake.input.vcf)  # Must have a string representation
 assert hasattr(snakemake.params, "rename")
 
 output_type = "z" if re.search("vcf\.gz$", snakemake.output[0]) else \
