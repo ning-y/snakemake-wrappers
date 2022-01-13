@@ -7,7 +7,7 @@ rule rename_chroms:
     output: vcf = "output.vcf.gz", tmp = temp("chrom.txt")
     input: vcf = "input.vcf.gz"
     params: rename = {f"chr{z}": z for z in [*range(0, 23), "X", "Y"]}
-    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/ce06eed/bcftools/rename-chroms"
+    wrapper: "https://github.com/ning-y/snakemake-wrappers/raw/42fa967/bcftools/rename-chroms"
 #+end_src
 
 * Parameters
@@ -24,5 +24,5 @@ rule rename_chroms:
 
 * Changelog
 
-- Latest commit in this wrapper :: Move input to input.vcf (named input)
+- ~42fa967~ :: Move input to input.vcf (named input)
 - ~ce06eed~ :: Initial commit
